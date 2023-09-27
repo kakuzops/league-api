@@ -15,4 +15,9 @@ func SetupRoutes(app *fiber.App) {
 	v1.Put("/:id", handler.UpdateUser)
 	v1.Delete("/:id", handler.DeleteUserByID)
 
+	v0 := api.Group("/champion")
+
+	v0.Get("/", handler.GetAllChampions)
+	v0.Post("/", handler.CreateChampion)
+	v0.Get("/:city", handler.GetChampionsByCity)
 }
